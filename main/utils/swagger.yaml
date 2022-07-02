@@ -16,12 +16,6 @@ paths:
       produces:
       - application/json
       parameters:
-      - name: request_date
-        in: query
-        description: Request datetime in UTC isoformat
-        required: false
-        schema:
-          type: string
       - name: attachment_depth
         in: query
         description: Attachment depth
@@ -40,6 +34,9 @@ paths:
                 type: string
               attachment:
                 type: object
+                properties:
+                  entity:
+                    type: object
     get:
       tags:
       - request_api

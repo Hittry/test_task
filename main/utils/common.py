@@ -1,5 +1,3 @@
-import datetime
-
 # Поля БД
 ID = 'id'
 REQUEST_UUID = 'request_uuid'
@@ -16,11 +14,6 @@ DATE_FORMAT = '%d/%m/%y %H:%M:%S'
 async def tick_reversed_numbers(depth: int):
     for count in reversed(range(depth - 1)):
         yield count
-
-
-async def correct_form(dt: str) -> datetime:
-    date_time = datetime.datetime.strptime(dt, DATE_FORMAT) if dt else datetime.datetime.utcnow()
-    return date_time
 
 
 async def build_json_by_depth(depth: int) -> dict:

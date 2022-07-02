@@ -1,3 +1,4 @@
+import datetime
 import uuid
 
 import common as ut_common
@@ -59,11 +60,10 @@ async def save_info(request):
     if not query[ut_common.ATTACHMENT_DEPTH]:
         raise web.HTTPBadRequest(reason='Empty attachment depth')
 
-    dt_str = query.get(ut_common.REQUEST_DATE, '')
     depth_level = int(query[ut_common.ATTACHMENT_DEPTH])
     req_uuid = str(uuid.uuid4())
 
-    date_time = await ut_common.correct_form(dt_str)
+    date_time = datetime.datetime.utcnow()
     attachment = await ut_common.build_json_by_depth(depth_level)
     async with sa_session.begin():
         try:
