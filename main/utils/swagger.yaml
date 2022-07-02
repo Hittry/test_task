@@ -1,0 +1,62 @@
+swagger: "2.0"
+info:
+  description: |
+    API Request Description
+  version: "1.0"
+  title: Test Task
+basePath: /
+schemes:
+  - http
+paths:
+  /task:
+    post:
+      tags:
+      - save_request
+      summary: Request save
+      description: Save request data with uuid
+      produces:
+      - application/json
+      parameters:
+      - name: request_date
+        in: query
+        description: Request date UTC isoformat
+        required: false
+        schema:
+          type: string
+      - name: attachment_depth
+        in: query
+        description: Attachment depth
+        required: True
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Ok
+          schema:
+            type: object
+            properties:
+              request_uuid:
+                type: string
+              request_date:
+                type: string
+              attachment:
+                type: object
+    get:
+      tags:
+      - save_request
+      summary: Request info
+      description: Get compare uuid and id
+      produces:
+        - plain/text
+      parameters:
+      - name: request_uuid
+        in: query
+        description: Uuid
+        required: True
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Ok
+          schema:
+            type: string
