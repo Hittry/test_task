@@ -1,7 +1,6 @@
 swagger: "2.0"
 info:
-  description: |
-    API Request Description
+  description: API Request Description
   version: "1.0"
   title: Test Task
 basePath: /
@@ -11,15 +10,15 @@ paths:
   /task:
     post:
       tags:
-      - save_request
-      summary: Request save
+      - request_api
+      summary: Save Reques
       description: Save request data with uuid
       produces:
       - application/json
       parameters:
       - name: request_date
         in: query
-        description: Request date UTC isoformat
+        description: Request datetime in UTC isoformat
         required: false
         schema:
           type: string
@@ -43,15 +42,15 @@ paths:
                 type: object
     get:
       tags:
-      - save_request
-      summary: Request info
+      - request_api
+      summary: Compare request_uuid and id in DB
       description: Get compare uuid and id
       produces:
         - plain/text
       parameters:
       - name: request_uuid
         in: query
-        description: Uuid
+        description: Request uuid
         required: True
         schema:
           type: string
