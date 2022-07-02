@@ -14,14 +14,14 @@ async def ticker(number_task: int):
 
 
 async def main():
-    params_get = {'attachment_depth': args.depth}
+    params_post = {'attachment_depth': args.depth}
     async with aiohttp.ClientSession() as session:
         async for count in ticker(args.number):
-            async with session.post(URL, params=params_get) as post_resp:
+            async with session.post(URL, params=params_post) as post_resp:
                 answer = await post_resp.json()
                 req_uuid = answer['request_uuid']
-                params_post = {'request_uuid': req_uuid}
-            async with session.get(URL, params=params_post) as get_resp:
+                params_get = {'request_uuid': req_uuid}
+            async with session.get(URL, params=params_get) as get_resp:
                 compare_id_uuid = await get_resp.text()
                 print(f"Выполнено: {count}, всего: {args.number}")
 
