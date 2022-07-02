@@ -1,6 +1,3 @@
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import uuid
 
 import aiohttp_sqlalchemy as ah_sa
@@ -8,8 +5,8 @@ from aiohttp_swagger import setup_swagger
 from aiohttp import web
 from sqlalchemy import select
 
-from schema import Base, TableSchema
 import common as ut_common
+from schema import Base, TableSchema
 
 routes = web.RouteTableDef()
 
