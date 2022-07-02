@@ -23,6 +23,7 @@ async def main():
                 params_get = {'request_uuid': req_uuid}
             async with session.get(URL, params=params_get) as get_resp:
                 compare_id_uuid = await get_resp.text()
+                print(compare_id_uuid)
                 print(f"Выполнено: {count}, всего: {args.number}")
 
 
