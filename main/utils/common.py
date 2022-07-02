@@ -6,13 +6,8 @@ REQUEST_UUID = 'request_uuid'
 REQUEST_DATE = 'request_date'
 ATTACHMENT = 'attachment'
 
-# Подключение к БД
-DEFAULT_PORT = '5432'
-USER = 'user'
-PASSWORD = 'password'
-HOST = 'localhost'
+# Формирмирование json
 ATTACHMENT_DEPTH = 'attachment_depth'
-
 ENTITY = 'entity'
 
 DATE_FORMAT = '%d/%m/%y %H:%M:%S'
